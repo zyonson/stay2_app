@@ -1,0 +1,26 @@
+<% if flash[:notice] %>
+    <%=flash[:notice] %>
+<% end %>
+<h2>プロフィール</h2>
+
+<%=form_with model: @profile   do |f| %>
+    <% if @profile.avatar? %>
+        <%= image_tag @profile.avatar.url %>
+    <% end %>
+    <div class= "update-content">
+        <%= f.label :avatar,"アイコン画像",class: "title" %>
+        <%= f.file_field :avatar %>
+    </div>
+    <div class= "update-content">
+        <%= f.label :rename,"名前" ,class: "title" %>
+        <%= f.text_field :rename %>
+    </div>
+    
+    <div class= "update-content">
+        <%= f.label :description,"自己紹介",class: "title" %>
+        <%= f.text_area :description, :size=>"80x8" %>
+    </div>
+    <div >
+        <%= f.submit "更新", class: "button" %>
+    </div>
+<% end %>
