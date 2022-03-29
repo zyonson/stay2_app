@@ -7,4 +7,5 @@ class User < ApplicationRecord
          validates :name, presence: true
 
          has_one :profile, dependent: :destroy
+         has_many :rooms
 end

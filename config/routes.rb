@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
   get "/profiles/:id/edit", to: 'profiles#edit'
  
   get 'profiles/show'
   get 'users/profile'
-  get 'users/account'
+  
+  
   resources :profiles
 
   devise_for :users, :controllers => {
@@ -16,5 +18,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
+  get 'users/:id', to: 'users#account'
+  resources :users
 end
