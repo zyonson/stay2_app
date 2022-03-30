@@ -1,0 +1,12 @@
+
+        <div><%= image_tag @room.image.url %></div>
+        <div>
+            <% if @profile.avatar %>
+                <%= image_tag @profile.avatar.url %>
+            <% end %>
+        </div>
+        <div>
+            <%= @room.room_name %><br>
+            <%= @room.address %>
+        </div>
+        <div><%= @room.room_description %></div>

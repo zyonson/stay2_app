@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'rooms/index'
-  get "/profiles/:id/edit", to: 'profiles#edit'
+  get "profiles/:id/edit", to: 'profiles#edit'
  
   get 'profiles/show'
   get 'users/profile'
@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
   get 'users/:id', to: 'users#account'
   resources :users
+  resources :rooms
 end

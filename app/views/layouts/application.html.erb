@@ -15,6 +15,7 @@
 <header>
   <div><%= link_to "トップ", "profiles/show", class: "text-white" %></div>
   <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div> 
+  <div><%= link_to "ルーム登録",new_room_path %></div>
 </header>
 <% end %> 
     <%= yield %>
