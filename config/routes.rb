@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   get 'rooms/index'
   get "profiles/:id/edit", to: 'profiles#edit'
- 
+ get 'reservations/new'
   get 'profiles/show'
   get 'users/profile'
+  get 'reservations/new'
+  post 'reservations/confirm'
+  post 'reservations/back'
+  post 'reservations/complete'
   
   
   resources :profiles

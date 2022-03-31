@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
          has_one :profile, dependent: :destroy
          has_many :rooms
+         has_many :reservations
 end

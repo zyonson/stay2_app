@@ -1,0 +1,39 @@
+<h1>予約フォーム</h1>
+
+<ol class="nav">
+	<li>1.入力</li>
+	<li class="current">2.確認</li>
+	<li>3.完了</li>
+</ol>
+
+<dl>
+    <dt><%= @room.price %></dt>
+    <dt>開始日</dt>
+    <dd><%= @reservation.start_date %></dd>
+    <dt>終了日</dt>
+    <dd><%= @reservation.end_date %></dd>
+    <dt>滞在日数<d>
+    <dd><%= @reservation.stay_date.to_i %></dd>
+    <dt>人数</dt>
+    <dd><%= @reservation.count %></dd>
+    <dt>合計金額<dt>
+    <dd><%= @reservation.total_price.to_i %></dd>
+</dl>
+
+<%= form_for @reservation, method: :post,url: reservations_back_path do |f| %>
+    <%=f.hidden_field :price %>
+    <%=f.hidden_field :start_date %>
+    <%=f.hidden_field :end_date %>
+    <%=f.hidden_field :count %>
+    <%= f.submit '入力画面に戻る' %>
+<% end %>
+
+<%= form_for @reservation, method: :post,url: reservations_complete_path do |f| %>
+    <%=f.hidden_field :price %>
+    <%=f.hidden_field :start_date %>
+    <%=f.hidden_field :end_date %>
+    <%=f.hidden_field :stay_date.to_i %>
+    <%=f.hidden_field :count %>
+    <%=f.hidden_field :total_price.to_i %>
+    <%= f.submit '送信する' %>
+<% end %>

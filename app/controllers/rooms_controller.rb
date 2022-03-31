@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :search]
   def index
     @rooms = Room.all
   end
@@ -11,9 +12,7 @@ class RoomsController < ApplicationController
     @room = Room.new(params.require(:room).permit(:room_name,:room_description,:price,:address,:image,:user_id))
     @room.user = current_user
     @room.profile_id = current_user.id
-    binding.pry
     if @room.save
-      binding.pry
       flash[:notice] = "ルームを新規登録しました"
       redirect_to :rooms
     else
@@ -25,7 +24,11 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @profile = Profile.find_by(id: @room.user_id)
+    @reservation = Reservation.new
+    binding.pry
   end
+
+ 
 
   def edit
     @room = Room.find(params[:id])
@@ -43,5 +46,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-  end 
+  end
+
 end
