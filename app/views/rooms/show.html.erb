@@ -11,7 +11,7 @@
 <div><%= @room.room_description %></div>
 
 <div>
-    <%= form_with model:@reservation,method: :post, url: reservations_confirm_path do |f| %>
+    <%= form_with model:@reservation do |f| %>
     <%= f.hidden_field :room_id, value: @room.id %>
         <table>
             <tr>

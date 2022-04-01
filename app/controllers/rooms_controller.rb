@@ -25,7 +25,6 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @profile = Profile.find_by(id: @room.user_id)
     @reservation = Reservation.new
-    binding.pry
   end
 
  
