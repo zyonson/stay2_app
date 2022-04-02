@@ -1,9 +1,12 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :search]
+  before_action :authenticate_user!, except: [:show, :search, :index]
   def index
     @rooms = Room.all
   end
 
+  def register
+    @rooms = Room.where(user_id: current_user.id)
+  end
   def new
     @room = Room.new
   end
@@ -43,6 +46,12 @@ class RoomsController < ApplicationController
         render "edit"
     end
   end
+
+  def search
+    @rooms = Room.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end 
 
   def destroy
   end

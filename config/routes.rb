@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
+  
   get 'rooms/index'
-  get "profiles/:id/edit", to: 'profiles#edit'
+  get 'rooms/register', to: 'rooms#register'
+  get "profiles/edit", to: 'profiles#edit'
   get 'profiles/show'
   get 'users/profile'
-  resources :reservations
   get 'reservations/new'
   post 'reservations/confirm'
   post 'reservations/back'
   post 'reservations/complete'
+  get 'reservations/reserve', to: 'reservations#reserve'
+  get 'reservations/index'
+  get 'search' => 'rooms#search'
   
   
   resources :profiles
-
+  resources :reservations
   devise_for :users, :controllers => {
   :sessions      => "users/sessions",
   :registrations => "users/registrations",
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  get 'users/:id', to: 'users#account'
+  get 'users/account', to: 'users#account'
   resources :users
   resources :rooms
 end

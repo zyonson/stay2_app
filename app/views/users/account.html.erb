@@ -2,14 +2,13 @@
     <tr><h2>アカウント</h2></tr>
     <tr>
         <th>メールアドレス</th>
-        <td><%= @user.email %></td>
+        <td><%= current_user.email %></td>
     </tr>
     <tr>
         <th>パスワード</th>
-        <td><%= @user.encrypted_password %></td>
+        <td><%= current_user.encrypted_password %></td>
     </tr>
-    <ul>
-        <li><%= link_to "編集",edit_user_registration_path(@user.id) %></li>
-        <li><%= link_to "ルーム登録",new_room_path %></li>
-    </ul>
+    <tr>
+        <%= link_to "編集",edit_user_registration_path(current_user.id) %>
+    </tr>
 </table>

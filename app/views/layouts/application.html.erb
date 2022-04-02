@@ -11,13 +11,20 @@
   </head>
 
   <body>
-  <% if user_signed_in? %> 
 <header>
-  <div><%= link_to "トップ", "profiles/show", class: "text-white" %></div>
-  <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div> 
-  <div><%= link_to "ルーム登録",new_room_path %></div>
+<% if user_signed_in? %> 
+  <div><%= link_to "トップ",rooms_path,class: "text-white" %></div>
+   <div><%= link_to "ルーム登録",new_room_path %></div>
+  <div><%= link_to "予約済みルーム一覧",reservations_path %></div>
+  <div><%= link_to "登録済みルーム一覧",rooms_register_path %></div>
+  <div><%= link_to "設定",users_account_path %></div>
+  <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div>
+<% else %>
+  <div><%= link_to "ログイン",user_session_path %></div>
+  <div><%= link_to "新規登録", new_user_registration_path %></div>
+<% end %>
 </header>
-<% end %> 
+ 
     <%= yield %>
   </body>
 </html>

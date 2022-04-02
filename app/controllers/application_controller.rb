@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
         edit_profile_path(resource.id)
     end
 
+    def after_sign_out_path_for(resource)
+        rooms_path
+    end
+
 end
