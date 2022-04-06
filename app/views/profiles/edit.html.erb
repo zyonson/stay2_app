@@ -1,28 +1,40 @@
 <% if flash[:notice] %>
     <%=flash[:notice] %>
 <% end %>
-<h2>プロフィール</h2>
-
-<%=form_with model: @profile   do |f| %>
-    <% if @profile.avatar? %>
-        <%= image_tag @profile.avatar.url %>
-    <% end %>
-    <div class= "update-content">
-        <%= f.label :avatar,"アイコン画像",class: "title" %>
-        <%= f.file_field :avatar %>
+<div class="rows">
+    <div class="col-lg-2">
+        <div class="subtitle">
+            <%= link_to "アカウント",users_account_path(current_user.id)%>
+        </div>
+        <div class="subtitle">
+            <%= link_to "プロフィール",edit_profile_path(current_user.id)%>
+        </div>
     </div>
-    <div class= "update-content">
-        <%= f.label :rename,"名前" ,class: "title" %>
-        <%= f.text_field :rename %>
+    <div class = "col-lg-10 room-view">
+        <div class="user-view-box">
+            <h2 class="pro-title">プロフィール</h2>
+            <%=form_with model: @profile do |f| %>
+            <% if @profile.avatar? %>
+                <div class="icon-box">
+                    <%= image_tag @profile.avatar.url, class: "avatar-image" %>
+                </div>
+            <% end %>
+            <div class= "rows">
+                <%= f.label :avatar,"アイコン画像",class: "title" %>
+                <%= f.file_field :avatar %>
+            </div>
+            <div class= "rows">
+                <%= f.label :rename,"名前" ,class: "title" %>
+                <%= f.text_field :rename %>
+            </div>
+            
+            <div class= "rows">
+                <%= f.label :description,"自己紹介",class: "title" %>
+                <%= f.text_area :description, :size=>"80x8" %>
+            </div>
+            <div >
+                <%= f.submit "更新", class: "buttons" %>
+            </div>
+            <% end %>
+        </div>
     </div>
-    
-    <div class= "update-content">
-        <%= f.label :description,"自己紹介",class: "title" %>
-        <%= f.text_area :description, :size=>"80x8" %>
-    </div>
-    <div >
-        <%= f.submit "更新", class: "button" %>
-    </div>
-    <%= link_to "編集",user_path(@profile.id) %>
-<% end %>
-

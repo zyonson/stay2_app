@@ -1,3 +1,30 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.account{
+    display:flex;
+    padding: 20px 10px;
+}
+.subtitle{
+    padding:15px 30px ;
+    font-size: 18px;
+}
+.room-view{
+    border-left: 2px solid gray;
+    background-color: #F6F8F9;
+    
+}
+.rows{
+    display:flex;
+    padding: 20px 10px;
+    border-bottom: 2px solid #e2e2e2;
+}
+.user-view-box{
+    border: 2px solid #e2e2e2;
+    margin:20px;
+    background-color: white;
+}
+.account-title{
+    padding:20px;
+    border-bottom: 2px solid #e2e2e2;
+}

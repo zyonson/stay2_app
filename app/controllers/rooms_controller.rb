@@ -1,5 +1,9 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :search, :index]
+  def top
+    @rooms = Room.all
+  end
+  
   def index
     @rooms = Room.all
   end
@@ -7,6 +11,7 @@ class RoomsController < ApplicationController
   def register
     @rooms = Room.where(user_id: current_user.id)
   end
+  
   def new
     @room = Room.new
   end

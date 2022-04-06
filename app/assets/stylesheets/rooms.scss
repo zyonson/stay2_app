@@ -1,3 +1,77 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.top-main{
+    background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+    background-size: cover;
+    width: 100%;
+}
+.container{
+  height:700px;
+  padding: 300px;
+}
+.form{
+    padding:20px 20px;
+    height: 300px;
+    width:500px;
+    background-color: #fff;
+}
+.form-p{
+    font-size: 30px;
+}
+.input{
+    width:100%;
+    height:40px;
+}
+.button{
+    margin-top:20px;
+    width: 100%;
+    height:40px;
+    border: 1px solid blue;
+    background-color: blue;
+    color: #fff;
+    border-radius: 5px;
+}
+.room-index{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin:20px;
+    height:400px;
+}
+.room-image{
+    height:200px;
+    width:100%;
+    padding-top:10px;
+}
+.room-price{
+    text-align: right;
+}
+.row{
+    display:flex;
+    padding: 20px 10px;
+    border-bottom: 2px solid #e2e2e2;
+}
+.room-view{
+    border-left: 2px solid #e2e2e2;
+    margin-right: 15px;
+}
+.reservation-image{
+    width:240px;
+    height:140px;
+    object-fit:cover;
+}
+.room-title{
+    border-bottom: 2px solid #e2e2e2;
+    padding:20px 10px;
+}
+.tr{
+    border-bottom: 2px solid #e2e2e2;
+}
+th{
+    padding:20px
+}
+td{
+    padding: 20px;
+}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  get 'rooms/top', to: "rooms#top"
   get 'rooms/index'
   get 'rooms/register', to: 'rooms#register'
   get "profiles/edit", to: 'profiles#edit'
@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   post 'reservations/confirm'
   post 'reservations/back'
   post 'reservations/complete'
-  get 'reservations/reserve', to: 'reservations#reserve'
   get 'reservations/index'
   get 'search' => 'rooms#search'
   
