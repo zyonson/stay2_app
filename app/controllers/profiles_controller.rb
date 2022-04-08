@@ -5,10 +5,6 @@ class ProfilesController < ApplicationController
 
   end
 
-  def show
-  
-  end
-
   def update
     @profile = Profile.find(params[:id])
     if @profile.update(params.require(:profile).permit(:avatar,:rename,:description))

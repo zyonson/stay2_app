@@ -31,3 +31,11 @@ header{
     margin-top: 15px;
     height:35px;
 }
+
+.login-form{
+    text-align:center;
+}
+
+.log-btn{
+    margin:15px;
+}

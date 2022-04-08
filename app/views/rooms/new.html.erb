@@ -8,6 +8,7 @@
     <div class = "col-lg-10 room-view">
         <div>ルーム情報登録</div>
         <%= form_with model: @room do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <div>
                 <div class="row">
                     <%= f.label :room_name,"ルーム名",class: "col-md-3"%>

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'reservations/new'
   post 'reservations/confirm'
   post 'reservations/back'
-  post 'reservations/complete'
   get 'reservations/index'
   get 'search' => 'rooms#search'
   

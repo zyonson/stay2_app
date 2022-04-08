@@ -141,3 +141,21 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+  activerecord:
+    models:
+      reservation: 予約
+    attributes:
+      reservation:
+        start_date: 開始日
+        end_date: 終了日
+        count: 人数
+  activerecord:
+    models:
+      room: ルーム
+    attributes:
+      room:
+        room_name: ルーム名
+        room_description: ルーム紹介
+        price: 料金
+        address: 住所
+        image: ルーム画像

@@ -29,6 +29,9 @@
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
         </ul>
       </div>
+      <% else %>
+        <%= link_to "ログイン",new_user_session_path,class:"btn btn-secondary log-btn"%>
+        <%= link_to "新規登録",new_user_registration_path,class:"btn btn-secondary log-btn" %>
     <% end %> 
   <div>
 </header>

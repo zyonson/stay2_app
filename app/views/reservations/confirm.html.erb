@@ -6,34 +6,57 @@
 	<li>3.完了</li>
 </ol>
 
-<dl>
-    <dt><%= @room.price %></dt>
-    <dt>開始日</dt>
-    <dd><%= @reservation.start_date %></dd>
-    <dt>終了日</dt>
-    <dd><%= @reservation.end_date %></dd>
-    <dt>滞在日数<d>
-    <dd><%= @reservation.stay_date.to_i %></dd>
-    <dt>人数</dt>
-    <dd><%= @reservation.count %></dd>
-    <dt>合計金額<dt>
-    <dd><%= @reservation.total_price.to_i %></dd>
-</dl>
-
-<%= form_for @reservation, method: :post,url: reservations_back_path do |f| %>
-    <%=f.hidden_field :price %>
-    <%=f.hidden_field :start_date %>
-    <%=f.hidden_field :end_date %>
-    <%=f.hidden_field :count %>
-    <%= f.submit '入力画面に戻る' %>
+<table>
+    <tr>
+        <td><%= @reservation.room.price %><td>
+    </tr>
+    <%= form_with model: @reservation do |f| %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.hidden_field :profile_id, value: @room.profile_id %>
+    <tr>
+        <th>開始日</th>
+        <td>
+            <%= @reservation.start_date %>
+            <%= f.hidden_field :start_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td>
+            <%= @reservation.end_date %>
+            <%= f.hidden_field :end_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>滞在日数</th>
+        <td>
+            <%= @reservation.stay_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>人数</th>
+        <td>
+            <%= @reservation.count %>
+            <%= f.hidden_field :count %>
+        </td>
+    </tr>
+    <tr>
+        <th>合計金額</th>
+        <td>
+            <%= @reservation.total_price %>
+        <td>
+    </tr>
+    <tr>
+        <%= f.submit "送信" %>
+<% end %>
+<%= form_for @reservation, method: :post, url: reservations_back_path do |f| %>
+	<%= f.hidden_field :start_date %>
+	<%= f.hidden_field :end_date %>
+	<%= f.hidden_field :count %>
+	<%= f.submit '入力画面に戻る' %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :profile_id, value: @room.profile_id %>
 <% end %>
 
-<%= form_for @reservation, method: :post,url: reservations_complete_path do |f| %>
-    <%=f.hidden_field :price %>
-    <%=f.hidden_field :start_date %>
-    <%=f.hidden_field :end_date %>
-    <%=f.hidden_field :stay_date.to_i %>
-    <%=f.hidden_field :count %>
-    <%=f.hidden_field :total_price.to_i %>
-    <%= f.submit '送信する' %>
-<% end %>
+</table>
+

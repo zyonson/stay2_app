@@ -58,7 +58,4 @@ class RoomsController < ApplicationController
     render "index"
   end 
 
-  def destroy
-  end
-
 end

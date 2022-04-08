@@ -45,3 +45,11 @@
     padding: 10px;
 }
 
+.title::after {
+    content: "必須";
+    color:white;
+    background-color: red;
+    border-radius: 5%;
+    padding: 5px;
+}
+

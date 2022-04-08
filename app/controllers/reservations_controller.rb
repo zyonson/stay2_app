@@ -5,40 +5,36 @@ class ReservationsController < ApplicationController
 def index
   @reservations = Reservation.where(user_id: current_user.id)
 end
+
+def back
+  @reservation = Reservation.new(permit_params)
+  @room = Room.find(@reservation.room_id)
+  @profile = Profile.find(@reservation.profile_id)
+  render "rooms/show"
+end
+def confirm
+  @reservation =current_user.reservations.new(permit_params)
+  @room = Room.find(@reservation.room_id)
+  @profile = Profile.find(@reservation.profile_id)
+  
+  render 'rooms/show' if @reservation.invalid?
+end
+
+def create
+  @reservation = current_user.reservations.new(permit_params)
+  @room = Room.find(@reservation.room_id)
+  if @reservation.save
+    flash[:notice] = "予約が完了しました"
+    redirect_to :reservations
+  else
+    render "rooms/show"
+  end
+end
  
-
-  def create
-    @reservation =Reservation.new(@attr)
-    @room = Room.find_by(id: @reservation.room_id)
-    @reservation.stay_date
-    @reservation.total_price
-    @reservation.user_id= current_user.id
-    @reservation.profile_id= current_user.id
-    if @reservation.save
-      flash[:notice] = "予約が完了しました"
-      redirect_to :reservations
-    else
-      render "rooms/new"
-    end
-    
-  end
-
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
-  private
+private
 
   def permit_params
-   @attr = params.require(:reservation).permit(:start_date, :end_date, :stay_date, :count,:total_price, :user_id,:profile_id, :room_id)
+   params.require(:reservation).permit(:start_date, :end_date, :count, :user_id,:room_id,:profile_id)
   end
-
-
 
 end
