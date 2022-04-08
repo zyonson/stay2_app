@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+<div class="row">
+    <div class="col-lg-2 row">
+        <%= link_to "基本情報",new_room_path %>
+    </div>
+    <div class = "col-lg-10 room-view">
+        <div>ルーム情報登録</div>
+        <%= form_with model: @room do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+            <div>
+                <div class="row">
+                    <%= f.label :room_name,"ルーム名",class: "col-md-3"%>
+                    <%= f.text_field :room_name,class: "col-md-9" %>
+                </div>
+                <div class="row">
+                    <%= f.label :room_description,"ルーム紹介",class: "col-md-3"%>
+                    <%= f.text_area :room_description,class: "col-md-9" %>
+                </div>
+                <div class="row">
+                    <%= f.label :price,"料金",class: "col-md-3" %>
+                    <%= f.number_field :price,class: "col-md-9" %>
+                </div>
+                <div class="row">
+                    <%= f.label :address,"住所",class: "col-md-3" %>
+                    <%= f.text_field :address,class: "col-md-9" %>
+                </div>
+                <div class="row">
+                    <%= f.label :image,"ルーム画像",class: "col-md-3" %>
+                    <%= f.file_field :image,class: "col-md-9" %>
+                <div>
+                <div><%= f.submit "登録する" %></div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+

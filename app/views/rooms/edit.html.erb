@@ -1,0 +1,25 @@
+<%= form_with model: @room do |f| %>
+    <table>
+        <tr>
+            <th><%= f.label :room_name,"ルーム名" %></th>
+            <td><%= f.text_field :room_name %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :room_description,"ルーム紹介"%></th>
+            <td><%= f.text_area :room_description %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :price,"料金" %></th>
+            <td><%= f.number_field :price %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :address,"住所" %></th>
+            <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :image,"ルーム画像" %></th>
+            <td><%= f.file_field :image %></td>
+        </tr>
+        <tr><%= f.submit %></tr>
+    </table>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="account">
+    <div class="col-lg-2">
+        <div class="subtitle">
+            <%= link_to "アカウント",users_account_path(current_user.id)%>
+        </div>
+        <div class="subtitle">
+            <%= link_to "プロフィール",edit_profile_path(current_user.id)%>
+        </div>
+    </div>
+    <div class = "col-lg-10 room-view">
+        <div class="user-view-box">
+            <h2 class="account-title">アカウント</h2>
+            <div class="rows">
+                <p class="col-md-3">メールアドレス</p>
+                <div class="col-md-9">
+                    <%= current_user.email %>
+                </div>
+            </div>
+            <div class="rows">
+                <p class="col-md-3">パスワード</p>
+                <div class="col-md-9">
+                    **********
+                </div>
+            </div>
+            <div class="rows">
+                <%= link_to "編集",edit_user_registration_path(current_user.id),class:"col-md-2 btn btn-primary mx-3" %>
+            </div>
+        </div>
+    </div>
+</div>

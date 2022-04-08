@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+    <%=flash[:notice] %>
+<% end %>
+<div class="rows">
+    <div class="col-lg-2">
+        <div class="subtitle">
+            <%= link_to "アカウント",users_account_path(current_user.id)%>
+        </div>
+        <div class="subtitle">
+            <%= link_to "プロフィール",edit_profile_path(current_user.id)%>
+        </div>
+    </div>
+    <div class = "col-lg-10 room-view">
+        <div class="user-view-box">
+            <h2 class="pro-title">プロフィール</h2>
+            <%=form_with model: @profile do |f| %>
+            <% if @profile.avatar? %>
+                <div class="icon-box">
+                    <%= image_tag @profile.avatar.url, class: "avatar-image title" %>
+                </div>
+            <% end %>
+            <div class= "rows">
+                <%= f.label :avatar,"アイコン画像",class: "title" %>
+                <%= f.file_field :avatar %>
+            </div>
+            <div class= "rows">
+                <%= f.label :rename,"名前" ,class: "title" %>
+                <%= f.text_field :rename %>
+            </div>
+            
+            <div class= "rows">
+                <%= f.label :description,"自己紹介",class: "title" %>
+                <%= f.text_area :description, :size=>"80x8" %>
+            </div>
+            <div >
+                <%= f.submit "更新", class: "buttons" %>
+            </div>
+            <% end %>
+        </div>
+    </div>

@@ -1,0 +1,16 @@
+<div class= "room-index">
+    <% if flash[notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+    <% @rooms.each do |room|%>
+        <div class="card" style="width: 20rem;">
+        <%= image_tag room.image.url,class: "room-image" %>
+        <div class="card-body">
+        <h4 class="card-title"><%= room.room_name %></h4>
+        <p class="card-text"><%= room.address %></p>
+        <p class="card-text room-price">¥<%= room.price %></p>
+        </div>
+        <%= link_to "詳細",room_path(room.id) %>
+        </div>
+    <% end %>
+</div>

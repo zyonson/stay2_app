@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ *{box-sizing: border-box;}
+header{
+    background-color: black;
+    display:flex;
+    justify-content: space-between;
+}
+.menu{
+    display: flex;
+}
+.user_name{
+    color: white;
+    margin-top: 25px;
+    margin-right:10px;
+}
+.dropdown-toggle{
+    margin-top: 15px;
+    height:35px;
+}
+
+.login-form{
+    text-align:center;
+}
+
+.log-btn{
+    margin:15px;
+}

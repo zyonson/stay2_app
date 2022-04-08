@@ -1,0 +1,62 @@
+<h1>予約フォーム</h1>
+
+<ol class="nav">
+	<li>1.入力</li>
+	<li class="current">2.確認</li>
+	<li>3.完了</li>
+</ol>
+
+<table>
+    <tr>
+        <td><%= @reservation.room.price %><td>
+    </tr>
+    <%= form_with model: @reservation do |f| %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.hidden_field :profile_id, value: @room.profile_id %>
+    <tr>
+        <th>開始日</th>
+        <td>
+            <%= @reservation.start_date %>
+            <%= f.hidden_field :start_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td>
+            <%= @reservation.end_date %>
+            <%= f.hidden_field :end_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>滞在日数</th>
+        <td>
+            <%= @reservation.stay_date %>
+        </td>
+    </tr>
+    <tr>
+        <th>人数</th>
+        <td>
+            <%= @reservation.count %>
+            <%= f.hidden_field :count %>
+        </td>
+    </tr>
+    <tr>
+        <th>合計金額</th>
+        <td>
+            <%= @reservation.total_price %>
+        <td>
+    </tr>
+    <tr>
+        <%= f.submit "送信" %>
+<% end %>
+<%= form_for @reservation, method: :post, url: reservations_back_path do |f| %>
+	<%= f.hidden_field :start_date %>
+	<%= f.hidden_field :end_date %>
+	<%= f.hidden_field :count %>
+	<%= f.submit '入力画面に戻る' %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :profile_id, value: @room.profile_id %>
+<% end %>
+
+</table>
+

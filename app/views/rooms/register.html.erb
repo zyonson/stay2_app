@@ -1,0 +1,21 @@
+<div class="room-title">
+    <h4>登録済みルーム一覧</h4>
+</div>
+<table>
+    <tr class="tr" align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+    </tr>
+    <% @rooms.each do |room|%>
+    <tr class="tr">
+        <td><%= image_tag room.image.url, class: "reservation-image" %></td>
+        <td><%= link_to room.room_name,room_path(room.id) %></td>
+        <td><%= room.room_description %></td>
+        <td><%= room.price %></td>
+        <td><%= room.created_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <% end %>
+</table>

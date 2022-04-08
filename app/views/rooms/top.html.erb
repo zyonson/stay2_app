@@ -1,0 +1,16 @@
+<div class="top">
+    <div class="top-main">
+        <div class= "container">
+            <div class ="form">
+                <p class="form-p">Potepan Shareでまだ体験したことのない旅をしよう</p>
+                <div class="search-form">
+                    <p>エリア</p>
+                    <%= form_with url: search_path, method: :get, local: true do |f| %>
+                        <%= f.text_field :keyword, value: @keyword, class:"input" %>
+                        <br><%= f.submit "検索",class: "button" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
